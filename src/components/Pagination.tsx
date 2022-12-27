@@ -21,7 +21,7 @@ const Paginaton = ({
           <li key={number}>
             <a
               onClick={() => paginate(number)}
-              href="!#"
+              href="/#"
               className="pagination"
             >
               {number}

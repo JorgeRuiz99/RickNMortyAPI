@@ -8,13 +8,14 @@ import Pagination from "./components/Pagination";
 function App() {
   const [char, setChar] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [charPerPage, setCharPerPage] = useState(9);
+  const [charPerPage] = useState(9);
 
   const indexOfLastChar = currentPage * charPerPage;
   const indexOfFirstChar = indexOfLastChar - charPerPage;
   const currentCharacters = char.slice(indexOfFirstChar, indexOfLastChar);
 
-  const apiURL = "https://rickandmortyapi.com/api/character?page=1";
+  const apiURL =
+    "https://rickandmortyapi.com/api/character?page=1,2,3,4,5,6,7,8,9,10,11";
 
   useEffect(() => {
     getCharacters(apiURL).then((char) => setChar(char));
@@ -27,7 +28,7 @@ function App() {
       <header className="App-header">
         <img src={logo1} className="App-logo" alt="logo" />
         <p>
-          <strong>Bienvenido a la API de Rick y Morty</strong>
+          <strong>Welcome to the Rick and Morty API</strong>
         </p>
         <section className="Grid">
           {currentCharacters.map(
