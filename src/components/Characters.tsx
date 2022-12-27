@@ -14,11 +14,11 @@ const Characters = ({
   return (
     <div className="Box">
       <div className="BoxContent">
-        <p>Last location: {locationName}</p>
-        <p>Status: {status}</p>
+        <h3>Name: {name}</h3>
+        <small>Last location: {locationName}</small>
         <br />
         <img alt="" src={image} />
-        <h3>Name: {name}</h3>
+        <p>Status: {status}</p>
       </div>
     </div>
   );

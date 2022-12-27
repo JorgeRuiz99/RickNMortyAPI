@@ -1,6 +1,4 @@
-function getChar() {
-  const apiURL = "https://rickandmortyapi.com/api/character";
-
+function getCharacters(apiURL: string) {
   return fetch(apiURL)
     .then((res) => res.json())
     .then((response) => {
@@ -22,4 +20,4 @@ function getChar() {
     });
 }
 
-export default getChar;
+export default getCharacters;
