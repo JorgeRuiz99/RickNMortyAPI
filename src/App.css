@@ -22,6 +22,12 @@
   
 }
 
+.Grid {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .Components {
   display: flex;
   flex-wrap: wrap;
