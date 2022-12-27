@@ -9,19 +9,27 @@ function App() {
   const [char, setChar] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [charPerPage] = useState(9);
+  const [query, setQuery] = useState("");
 
   const indexOfLastChar = currentPage * charPerPage;
   const indexOfFirstChar = indexOfLastChar - charPerPage;
   const currentCharacters = char.slice(indexOfFirstChar, indexOfLastChar);
 
-  const apiURL =
-    "https://rickandmortyapi.com/api/character?page=1,2,3,4,5,6,7,8,9,10,11";
+  const apiURL = "https://rickandmortyapi.com/api/character";
 
   useEffect(() => {
     getCharacters(apiURL).then((char) => setChar(char));
-  }, [apiURL]);
+  }, []);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  const search = (data: any) => {
+    return data.filter((currentCharacters: { name: string }) =>
+      currentCharacters.name.toLowerCase().includes(query)
+    );
+  };
+
+  search(currentCharacters);
 
   return (
     <div className="App">
@@ -29,6 +37,14 @@ function App() {
         <img src={logo1} className="App-logo" alt="logo" />
         <p>
           <strong>Welcome to the Rick and Morty API</strong>
+          <form action="">
+            <input
+              type="text"
+              placeholder="search..."
+              className="search"
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </form>
         </p>
         <section className="Grid">
           {currentCharacters.map(

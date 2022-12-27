@@ -20,7 +20,10 @@
   flex-direction: column; 
 }
 
-
+.search {
+  padding: 10px ;
+  font-size: 20px;
+}
 
 .Grid {
   display: flex;
