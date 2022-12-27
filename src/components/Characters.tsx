@@ -1,3 +1,5 @@
+import "../App.css";
+
 const Characters = ({
   name,
   image,
@@ -11,13 +13,13 @@ const Characters = ({
 }) => {
   return (
     <div className="Box">
-      <h3>Name: {name}</h3>
-      <img alt="" src={image} />
-      <p>
-        Last location: {locationName}
+      <div className="BoxContent">
+        <p>Last location: {locationName}</p>
+        <p>Status: {status}</p>
         <br />
-        Status: {status}
-      </p>
+        <img alt="" src={image} />
+        <h3>Name: {name}</h3>
+      </div>
     </div>
   );
 };
